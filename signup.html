@@ -67,7 +67,7 @@ input[type=submit] {
 </head>
 <body>
 
-<h1 style="color:#bfff00;">Registration</h1>
+<h1 style="color:#bfff00;">Vupadhi Registration</h1>
 <div class="signup">
 <form action="signup">
 
@@ -86,6 +86,9 @@ input[type=submit] {
 <td>&nbsp;&nbsp;<label>Repeat Password <span>*</span></label></td>
 <td><input type="password" id="cpsw" placeholder="Repeat Password" required onblur="confirmPassword()"></td>
 <td>&nbsp;&nbsp;<input type="checkbox" onclick="showPassword()">Show Password</td>
+</tr>
+<tr>
+<td style="font-size:14px">(Hint:Abc12345)</td>
 </tr>
 </table>
 <div id="message">
@@ -110,6 +113,12 @@ input[type=submit] {
 <td>&nbsp;&nbsp;&nbsp;<label>DOB <span>*</span></label></td>
 <td><input type="date" min='1900-01-01' max='2019-04-12' required></td>
 </tr>
+<tr>
+<td>Address <span>*</span></td>
+<td><input type="text" required></td>
+<td>&nbsp;&nbsp;&nbsp;Pincode <span>*</span></td>
+<td><input type="number" required ></td>
+</tr>
 </table>
 
 <hr>
@@ -119,13 +128,13 @@ input[type=submit] {
 <td><label> Schoole Name <span>*</span></label></td>
 <td><input type="text"  placeholder="Enter Your School Name" required></td>
 <td>&nbsp;&nbsp;<label> Passed Year<span>*</span></label></td>
-<td><input type="month"></td>
+<td><input type="month" min="1985-01"  max="2018-04" ></td>
 </tr>
 <tr>
 <td><label> Inter College Name <span>*</span></label></td>
 <td><input type="text" placeholder="Enter Inter College Name" required></td>
 <td>&nbsp;&nbsp;<label>Passed Year <span>*</span></label></td>
-<td><input type="month"></td>
+<td><input type="month" min="1985-01"  max="2018-04" ></td>
 </tr>
 <tr>
   <td>Highest Qualification<span>*</span></td>
@@ -139,7 +148,7 @@ input[type=submit] {
   <option value="BCA">BCA</option>
   </select></td>
   <td>&nbsp;&nbsp;<label>Passed Year <span>*</span></label></td>
-<td><input type="month" min="2019-04"></td>
+<td><input type="month" min="1985-01"  max="2018-04" ></td>
   </tr>
 </table>
 <hr>
