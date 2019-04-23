@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Registration Form</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="signup.css"/>
 <style type="text/css">
@@ -157,12 +158,14 @@ input[type=submit] {
 </div>
 <hr>
 <h3 style="color:#0ED8E2;">  Personal Details</h3>
-<table>
+<table ng-app="">
+<tr><td><h3 style="color:green">Hello {{ name }}</h3></td></tr>
 <tr>
 <td><label> Name <span>*</span></label></td>
-<td><input type="text" placeholder="Enter your Name" required></td>
+<td><input type="text" placeholder="Enter your Name" required ng-model="name"></td>
 <td>&nbsp;&nbsp;&nbsp;<label> Gender <span>*</span></label></td>
 <td> <input type="radio" name="gender" value="male"> Male<input type="radio" name="gender" value="female"> Female<input type="radio" name="gender" value="other"> Other </td>
+<td></td>
 </tr>
 <tr>
 <td><label> Mobile Number <span>*</span></label></td>
@@ -232,7 +235,7 @@ input[type=submit] {
 <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-<button type="submit" class="registerbtn">Register</button>
+<button type="submit" class="registerbtn" style="font-size: 20px;">Register</button>
 
 <div class="container signin">
     <p>Already have an account? <a href="login.html">Sign in</a>.</p>
