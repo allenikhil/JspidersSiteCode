@@ -120,7 +120,6 @@ input[type=submit] {
   left: -10px;
   content: "\2718";
 }
-
 </style>
 </head>
 <body>
@@ -133,13 +132,14 @@ input[type=submit] {
 <table>
 <tr>
 <td><label> Email <span>*</span></label></td>
-<td><input type="email" id="email" placeholder="Enter Your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter Correct Email Address"></td>
+<td><input type="email" id="email" placeholder="Enter Your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter Correct Email Address" autofocus ></td>
 <td>&nbsp;&nbsp;<label> Repeat Email<span>*</span></label></td>
 <td><input type="email" id="confemail" placeholder="Repeat Email" required onblur="confirmEmail()"></td>
 <td>&nbsp;&nbsp; <span>*</span> Mandatory Feilds</td>
 </tr>
 <tr>
-<td><label> Password <span>*</span></label></td>
+<td><label> Password <span>*</span></label>
+</td>
 <td><input type="password" placeholder="Enter your Password"  id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></td>
 <td>&nbsp;&nbsp;<label>Repeat Password <span>*</span></label></td>
 <td><input type="password" id="cpsw" placeholder="Repeat Password" required onblur="confirmPassword()"></td>
@@ -164,12 +164,12 @@ input[type=submit] {
 <td><label> Name <span>*</span></label></td>
 <td><input type="text" placeholder="Enter your Name" required ng-model="name"></td>
 <td>&nbsp;&nbsp;&nbsp;<label> Gender <span>*</span></label></td>
-<td> <input type="radio" name="gender" value="male"> Male<input type="radio" name="gender" value="female"> Female<input type="radio" name="gender" value="other"> Other </td>
+<td> <input type="radio" name="gender" value="male" checked > Male<input type="radio" name="gender" value="female"> Female<input type="radio" name="gender" value="other"> Other </td>
 <td></td>
 </tr>
 <tr>
 <td><label> Mobile Number <span>*</span></label></td>
-<td><input type="text" placeholder="Enter your Mobile number" pattern="^[6789]\d{9}$" required></td> //code added on 26/04/19
+<td><input type="text" placeholder="Enter your Mobile number" pattern="^[6789]\d{9}$" required></td>
 <td>&nbsp;&nbsp;&nbsp;<label>DOB <span>*</span></label></td>
 <td><input type="date" min='1900-01-01' max='2019-04-12' required></td>
 </tr>
@@ -178,6 +178,23 @@ input[type=submit] {
 <td><input type="text" required></td>
 <td>&nbsp;&nbsp;&nbsp;Pincode <span>*</span></td>
 <td><input type="number" required ></td>
+</tr>
+<tr>
+<td> Check to add Family Details:
+    <input type="checkbox" ng-model="myVar"></td>
+    </tr>
+    
+    <tr ng-show="myVar">
+<td><label>Father Name: <span>*</span></label></td>
+<td><input type="text" placeholder="Enter your Father Name" required ></td>
+<td>&nbsp;&nbsp;&nbsp;<label>Mother Name: <span>*</span></label></td>
+<td><input type="text" placeholder="Enter your Mother Name" required ></td>
+</tr>
+ <tr ng-show="myVar">
+<td><label>What Father Do: <span>*</span></label></td>
+<td><input type="text" placeholder="Father occupation" required ></td>
+<td>&nbsp;&nbsp;&nbsp;<label>What Mother Do: <span>*</span></label></td>
+<td><input type="text" placeholder="Mother occupation" required ></td>
 </tr>
 </table>
 
@@ -246,13 +263,13 @@ input[type=submit] {
       </div>
    
   <div class="col">
-        <a href="www.facebook.com" class="fb btn">
+        <a href="https://www.facebook.com/" class="fb btn">
           <i class="fa fa-facebook fa-fw"></i> Login with Facebook
          </a>
-        <a href="www.twitter.com" class="twitter btn">
+        <a href="https://twitter.com/login" class="twitter btn">
           <i class="fa fa-twitter fa-fw"></i> Login with Twitter
         </a>
-        <a href="www.googleplus.com" class="google btn"><i class="fa fa-google fa-fw">
+        <a href="https://aboutme.google.com/u/0/?referer=gplus" class="google btn"><i class="fa fa-google fa-fw">
           </i> Login with Google+
         </a>
       </div>
@@ -350,7 +367,7 @@ input[type=submit] {
         length.classList.remove("valid");
         length.classList.add("invalid");
       }
-    }
+    } 
 </script>
 </body>
 </html>
