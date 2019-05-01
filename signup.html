@@ -122,27 +122,27 @@ input[type=submit] {
 }
 </style>
 </head>
-<body>
+<body onload="myFunction()">
 
 <h1 style="color:#bfff00;">Vupadhi Registration</h1>
 <div class="signup">
-<form action="signup" method="post">
+<form action="reg.jsp" method="post">
 
 <h3 style="color:#0ED8E2;">Account Details</h3>
 <table>
 <tr>
 <td><label> Email <span>*</span></label></td>
-<td><input type="email" id="email" placeholder="Enter Your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter Correct Email Address" autofocus ></td>
+<td><input type="email" name="email" id="email" placeholder="Enter Your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter Correct Email Address" autofocus ></td>
 <td>&nbsp;&nbsp;<label> Repeat Email<span>*</span></label></td>
-<td><input type="email" id="confemail" placeholder="Repeat Email" required onblur="confirmEmail()"></td>
+<td><input type="email" id="confemail" placeholder="Repeat Email" required onblur="confirmEmail()" title="repeat email"></td>
 <td>&nbsp;&nbsp; <span>*</span> Mandatory Feilds</td>
 </tr>
 <tr>
 <td><label> Password <span>*</span></label>
 </td>
-<td><input type="password" placeholder="Enter your Password"  id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></td>
+<td><input type="password" placeholder="Enter your Password" id="psw"  name="password" pattern="(?=.*\d)(?=.*[$&+,:;=?@#|!%^&)*(-])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></td>
 <td>&nbsp;&nbsp;<label>Repeat Password <span>*</span></label></td>
-<td><input type="password" id="cpsw" placeholder="Repeat Password" required onblur="confirmPassword()"></td>
+<td><input type="password" id="cpsw" placeholder="Repeat Password" required onblur="confirmPassword()" title="repeat password"></td>
 <td>&nbsp;&nbsp;<input type="checkbox" onclick="showPassword()">Show Password</td>
 </tr>
 <tr>
@@ -154,6 +154,7 @@ input[type=submit] {
   <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
   <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
   <p id="number" class="invalid">A <b>number</b></p>
+   <p id="sc" class="invalid">A <b>Special Character</b></p>
   <p id="length" class="invalid">Minimum <b>8 characters</b></p>
 </div>
 <hr>
@@ -162,22 +163,22 @@ input[type=submit] {
 <tr><td><h3 style="color:green">Hello {{ name }}</h3></td></tr>
 <tr>
 <td><label> Name <span>*</span></label></td>
-<td><input type="text" placeholder="Enter your Name" required ng-model="name"></td>
+<td><input type="text" name="name" placeholder="Enter your Name" required ng-model="name"></td>
 <td>&nbsp;&nbsp;&nbsp;<label> Gender <span>*</span></label></td>
 <td> <input type="radio" name="gender" value="male" checked > Male<input type="radio" name="gender" value="female"> Female<input type="radio" name="gender" value="other"> Other </td>
 <td></td>
 </tr>
 <tr>
 <td><label> Mobile Number <span>*</span></label></td>
-<td><input type="text" placeholder="Enter your Mobile number" pattern="^[6789]\d{9}$" required></td>
+<td><input type="text" name="mobilenumber" placeholder="Enter your Mobile number" pattern="^[6789]\d{9}$" required title="enter 10 digits only starting with 6,7,8,9"></td>
 <td>&nbsp;&nbsp;&nbsp;<label>DOB <span>*</span></label></td>
-<td><input type="date" min='1900-01-01' max='2019-04-12' required></td>
+<td><input type="date" name="dob" min='1900-01-01' max='2019-04-12' required></td>
 </tr>
 <tr>
 <td>Address <span>*</span></td>
-<td><input type="text" required></td>
+<td><input type="text" name="address" placeholder="Enter your Address" required></td>
 <td>&nbsp;&nbsp;&nbsp;Pincode <span>*</span></td>
-<td><input type="number" required ></td>
+<td><input type="text" name="pincode" placeholder="Enter your Pincode" required ></td>
 </tr>
 <tr>
 <td> Check to add Family Details:
@@ -185,16 +186,16 @@ input[type=submit] {
     </tr>
     
     <tr ng-show="myVar">
-<td><label>Father Name: <span>*</span></label></td>
-<td><input type="text" placeholder="Enter your Father Name" required ></td>
-<td>&nbsp;&nbsp;&nbsp;<label>Mother Name: <span>*</span></label></td>
-<td><input type="text" placeholder="Enter your Mother Name" required ></td>
+<td><label>Father Name: </label></td>
+<td><input type="text" name="fname" placeholder="Enter your Father Name"  ></td>
+<td>&nbsp;&nbsp;&nbsp;<label>Mother Name: </label></td>
+<td><input type="text" name="mname" placeholder="Enter your Mother Name"  ></td>
 </tr>
  <tr ng-show="myVar">
-<td><label>What Father Do: <span>*</span></label></td>
-<td><input type="text" placeholder="Father occupation" required ></td>
-<td>&nbsp;&nbsp;&nbsp;<label>What Mother Do: <span>*</span></label></td>
-<td><input type="text" placeholder="Mother occupation" required ></td>
+<td><label>What Father Do: </label></td>
+<td><input type="text" name="fdo" placeholder="Father occupation"  ></td>
+<td>&nbsp;&nbsp;&nbsp;<label>What Mother Do:</label></td>
+<td><input type="text" name="mdo" placeholder="Mother occupation" ></td>
 </tr>
 </table>
 
@@ -203,15 +204,15 @@ input[type=submit] {
 <table>
 <tr>
 <td><label> Schoole Name <span>*</span></label></td>
-<td><input type="text"  placeholder="Enter Your School Name" required></td>
+<td><input type="text" name="schoolname" placeholder="Enter Your School Name" required></td>
 <td>&nbsp;&nbsp;<label> Passed Year<span>*</span></label></td>
-<td><input type="month" min="1985-01"  max="2018-04" ></td>
+<td><input type="month" name="schoolpassedyear" min="1985-01"  max="2018-04" ></td>
 </tr>
 <tr>
 <td><label> Inter College Name <span>*</span></label></td>
-<td><input type="text" placeholder="Enter Inter College Name" required></td>
+<td><input type="text" name="intercollegename" placeholder="Enter Inter College Name" required></td>
 <td>&nbsp;&nbsp;<label>Passed Year <span>*</span></label></td>
-<td><input type="month" min="1985-01"  max="2018-04" ></td>
+<td><input type="month" name="interpassedyear" min="1985-01"  max="2018-04" ></td>
 </tr>
 <tr>
   <td>Highest Qualification<span>*</span></td>
@@ -225,7 +226,7 @@ input[type=submit] {
   <option value="BCA">BCA</option>
   </select></td>
   <td>&nbsp;&nbsp;<label>Passed Year <span>*</span></label></td>
-<td><input type="month" min="1985-01"  max="2018-04" ></td>
+<td><input type="month" name="coursepassedyear" min="1985-01"  max="2018-05" ></td>
   </tr>
 </table>
 <hr>
@@ -245,14 +246,14 @@ input[type=submit] {
   <td><h3>Write A Review</h3></td>
   </tr>
   <tr>
- <td><textarea rows="4" cols="50" name="comment" form="usrform" placeholder="Enter text here...">
+ <td><textarea rows="4" cols="50" name="comments" form="usrform" placeholder="Enter text here..." title="write comments it will use for us to improve" >
 </textarea></td>
  </tr>
   </table>
 <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-<button type="submit" class="registerbtn" style="font-size: 20px;">Register</button>
+<button type="submit" class="registerbtn" style="font-size: 20px;" title="Thank you For Register">Register</button>
 
 <div class="container signin">
     <p>Already have an account? <a href="login.html">Sign in</a>.</p>
@@ -282,6 +283,16 @@ input[type=submit] {
 </div>
 
 <script type="text/javascript">
+//Leaving Page When Changes happen
+window.onbeforeunload = confirmExit;
+function confirmExit()
+{
+  return "Do you want to leave this page without saving?";
+}
+//When page load
+function myFunction() {
+	  alert("Page Is Loaded Pls Fill The Form");
+	}
 
     function confirmEmail() {
         var email = document.getElementById("email").value
@@ -316,6 +327,7 @@ input[type=submit] {
     var capital = document.getElementById("capital");
     var number = document.getElementById("number");
     var length = document.getElementById("length");
+    var sc=document.getElementById("sc");
 
     // When the user clicks on the password field, show the message box
     myInput.onfocus = function() {
@@ -337,6 +349,7 @@ input[type=submit] {
       } else {
         letter.classList.remove("valid");
         letter.classList.add("invalid");
+       
       }
       
       // Validate capital letters
@@ -367,6 +380,17 @@ input[type=submit] {
         length.classList.remove("valid");
         length.classList.add("invalid");
       }
+      //Validate Special Character
+      var sch = /[$&+,:;=?@#|!%^&)*(-]/g;
+      if(myInput.value.match(sch)) {  
+          sc.classList.remove("invalid");
+          sc.classList.add("valid");
+        } else {
+          sc.classList.remove("valid");
+          sc.classList.add("invalid");
+    
+        }
+      
     } 
 </script>
 </body>
