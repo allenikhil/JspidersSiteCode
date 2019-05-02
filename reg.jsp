@@ -35,7 +35,7 @@
 		motheroccupation=request.getParameter("mdo");}
 	
 	//Educational Details
-	String schoolname,schoolpassedyear,intercollegename,intercollegepassedyear,coursename,coursepassedyear,feedback,comments;
+	String schoolname,schoolpassedyear,intercollegename,intercollegepassedyear,coursename,coursepassedyear,feedback,comments,dateloaction;
 	
 	schoolname=request.getParameter("schoolname");
 	schoolpassedyear=request.getParameter("schoolpassedyear");
@@ -45,6 +45,7 @@
 	coursepassedyear=request.getParameter("coursepassedyear");
 	feedback=request.getParameter("feedback");
 	comments=request.getParameter("comments");
+	dateloaction=request.getParameter("datelocation");
 	String Ip=request.getRemoteAddr();
 	
 %>
@@ -143,6 +144,11 @@
 	<tr>
 		<td style="color:green" ><b>Your Passed Out Year: </b></td>
 		<td><%=coursepassedyear %></td>
+	</tr>
+	
+	<tr>
+		<td style="color:green; "><b>Registration Date&Location: </b></td>
+		<td><%=dateloaction %><br/></td>
 	</tr>
 	
 	<tr>
